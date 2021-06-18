@@ -1,8 +1,5 @@
 import React from "react";
 
-
-
-
 export const UserRow = ({user, changeUser, taskItems}) => (
     <tr>
         <td>

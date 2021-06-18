@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { TaskRow } from "./components/TaskRow";
-import { TaskBanner } from './components/TaskBanner'
-import { TaskCreator } from './components/TaskCreator'
-import { UserRow } from './components/userRow'
+import { TaskRow } from "./components/tasks/TaskRow";
+import { TaskBanner } from './components/tasks/TaskBanner'
+import { TaskCreator } from './components/tasks/TaskCreator'
+import { UserRow } from './components/users/userRow'
 
 
 function App() {

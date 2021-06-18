@@ -1,4 +1,5 @@
 import { React, useState } from 'react'
+import './styles.css'
 
 export const TaskCreator = (props) =>{
  const [newTaskName, setNewTaskName ] = useState('')
@@ -19,19 +20,10 @@ const onSendNewTask = () =>{
     }   
 }
 
-const creatorStyle= {
-    
-    display: "flex",
-}
-
-const inputStyle = {
-    width:"300px"
-}
-
     return ( 
-        <div style={creatorStyle} className="form-group m-1">
-            <h5 style={{margin:".5rem"}}>New task:</h5>
-            <input style={inputStyle} className="form-control m-1" value={newTaskName} onChange={changeTaskName} /> 
+        <div className="creatorStyle form-group m-1">
+            <h5 className="styleh5">New task:</h5>
+            <input className="inputStyle form-control m-1" value={newTaskName} onChange={changeTaskName} /> 
             <select className="m-1" id="asignedUser">
                 {props.users.map(usr =>
                     <option key={usr.username} value={usr.username}>{usr.username}</option>
