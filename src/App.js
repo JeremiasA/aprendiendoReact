@@ -3,6 +3,7 @@ import { TaskRow } from "./components/tasks/TaskRow";
 import { TaskBanner } from './components/tasks/TaskBanner'
 import { TaskCreator } from './components/tasks/TaskCreator'
 import { UserRow } from './components/users/userRow'
+import './App.css'
 
 
 function App() {
@@ -37,14 +38,26 @@ function App() {
     const taskTableRows = () => {
         return taskItems.map(task => {
             if(task.user === activeUser)
-                return <TaskRow key={task.id} task={task} activeUser={activeUser} toggleTask={toggleTask} />
+                return <TaskRow
+                 key={task.id}
+                 task={task}
+                 activeUser={activeUser}
+                 toggleTask={toggleTask}
+                 deleteTask={deleteTask}
+                 />
         }
         );
     };
 
     const userTableRows = () =>{
         return users.map(user =>
-            <UserRow key={user.username} user={user.username} changeUser={changeUser} taskItems={taskItems}/>);
+            <UserRow 
+                key={user.username}
+                user={user.username}
+                changeUser={changeUser}
+                
+                taskItems={taskItems}
+            />);
     }
 
     const addNewTask = (taskName, userName, taskId) => {
@@ -55,27 +68,10 @@ function App() {
         }
     }
 
-    
-const tableStyle= {
-    width:"70%",
-    "maxHeight": "20px",
-    marginLeft:"20px"
-}
-
-const usersTableStyle= {
-    width:"20%",
-    "marginLeft": "20px",
-        
-
-}
-
-const divTablesStyle = {
-    display:"flex",
-}
-
-const thStyle = {
-    "maxHeight": "10px"
-}
+    const deleteTask = (deletedTaskId) =>{
+        const newTaskItems = taskItems.filter(task => task.id !== deletedTaskId)
+        setTaskItems(newTaskItems)
+    }
 
     return (
         <div>
@@ -87,15 +83,13 @@ const thStyle = {
                 tasksLength={taskItems.length}
             />
             <hr />
-            <div style={divTablesStyle}>
-                <table
-                    style={tableStyle}
-                    className="table table-striped table-bordered"
-                >
-                    <thead style={thStyle}>
+            <div className="divTablesStyle">
+                <table className="tableStyle table table-striped table-bordered">
+                    <thead className="thStyle">
                         <tr>
-                            <th style={thStyle}>Description</th>
-                            <th style={thStyle}>Done</th>
+                            <th className="thStyle text-center">Description</th>
+                            <th style={{width:"10px"}} className="thStyle text-center">Done</th>
+                            <th style={{width:"10px"}} className="thStyle text-center">Delete</th>
                         </tr>
                     </thead>
                     <tbody>{taskTableRows()}</tbody>
@@ -106,8 +100,7 @@ const thStyle = {
                     </tr>
                 </table>
                 <table
-                    style={usersTableStyle}
-                    className="table table-striped table-bordered"
+                    className="usersTableStyle table table-striped table-bordered"
                 >
                     <thead>
                         <tr>
