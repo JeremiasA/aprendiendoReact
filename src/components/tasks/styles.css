@@ -1,0 +1,21 @@
+.bannerStyle {
+    width: 100%;
+    height: 75px;
+    text-align: left;
+}
+
+.creatorStyle {
+    display: flex
+}
+
+.inputStyle {
+    max-width:300px
+}
+
+.styleh5{
+    margin:.5rem
+}
+
+.tdStyle {
+    height:50px
+}
