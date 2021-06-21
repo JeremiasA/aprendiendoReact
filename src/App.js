@@ -3,17 +3,31 @@ import { TaskRow } from "./components/tasks/TaskRow";
 import { TaskBanner } from './components/tasks/TaskBanner'
 import { TaskCreator } from './components/tasks/TaskCreator'
 import { UserRow } from './components/users/userRow'
+import {deleteConfirm, deletedAlert} from './alerts/alerts'
 import './App.css'
 
 
 function App() {
-    const [activeUser, setActiveUser] = useState("Jeremias");
-
+    
     const [users, setUsers] = useState([
-        {username: "Jeremias"},
-        {username: "Karla"},
-        {username: "Abril"}
+        {
+            username: "Jeremias",
+            active: true,
+            deletionConfirm: true
+        },
+        {
+            username: "Karla",
+            active: false,
+            deletionConfirm: true
+        },
+        {
+            username: "Abril",
+            active: false, 
+            deletionConfirm: true
+        }
     ]);
+
+    const [activeUser, setActiveUser] = useState(users.find(u => u.active));
     const [taskItems, setTaskItems] = useState([
         { name: "task one", user: "Jeremias",  done: false, id:1 },
         { name: "task two", user:"Karla", done: false, id:2 },
@@ -24,24 +38,31 @@ function App() {
         { name: "task seven", user: "Jeremias",  done: false, id:7 },
         { name: "task eigth", user:"Abril", done: false, id:8 },
     ]);
-
+    
     const toggleTask = task =>{
       setTaskItems(taskItems.map(
           t => t.name === task.name ? {...t, done : !t.done} : t))
     }
 
     const changeUser = user =>{
-        setActiveUser(user)
+        setUsers(users.map( u => {
+            if(u.username === user){
+                setActiveUser(u)
+                return {...u, active : true}
+            } else {
+               return  {...u, active : false}
+            }
+        }))
       }
-  
-   
+
+         
     const taskTableRows = () => {
         return taskItems.map(task => {
-            if(task.user === activeUser)
+            if(task.user === activeUser.username)
                 return <TaskRow
                  key={task.id}
                  task={task}
-                 activeUser={activeUser}
+                 activeUser={activeUser.username}
                  toggleTask={toggleTask}
                  deleteTask={deleteTask}
                  />
@@ -68,14 +89,37 @@ function App() {
         }
     }
 
-    const deleteTask = (deletedTaskId) =>{
-        const newTaskItems = taskItems.filter(task => task.id !== deletedTaskId)
-        setTaskItems(newTaskItems)
-    }
-
-    return (
+    const deleteTask = async (deletedTaskId) =>{
+        if(activeUser.deletionConfirm === false){
+            const newTaskItems = taskItems.filter(task => task.id !== deletedTaskId)
+            setTaskItems(newTaskItems)
+            deletedAlert()
+        } else {
+            const {result, deleteConfirmOption} = await deleteConfirm()
+            if (result.isConfirmed) {
+                const newTaskItems = taskItems.filter(task => task.id !== deletedTaskId)
+                setTaskItems(newTaskItems)
+                deletedAlert()
+            }
+            if(deleteConfirmOption) {
+            setUsers(users.map( u =>{
+                if(u.username === activeUser.username){
+                    setActiveUser({...u, deletionConfirm : false})
+                    return {...u, deletionConfirm : false}
+                } else{
+                    return u
+                }
+            }))
+            
+                console.log(users, activeUser)
+            }
+            
+        }
+        }   
+        
+        return (
         <div>
-            <TaskBanner user={activeUser} taskItems={taskItems} />
+            <TaskBanner user={activeUser.username} taskItems={taskItems} />
             <hr />
             <TaskCreator
                 cb={addNewTask}
