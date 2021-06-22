@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/aprendiendoReact/static/css/main.32eb8c65.chunk.css",
-    "main.js": "/aprendiendoReact/static/js/main.9b457e76.chunk.js",
-    "main.js.map": "/aprendiendoReact/static/js/main.9b457e76.chunk.js.map",
-    "runtime-main.js": "/aprendiendoReact/static/js/runtime-main.7df00cea.js",
-    "runtime-main.js.map": "/aprendiendoReact/static/js/runtime-main.7df00cea.js.map",
+    "main.css": "/aprendiendoReact/static/css/main.b556cc81.chunk.css",
+    "main.js": "/aprendiendoReact/static/js/main.2ab25bb0.chunk.js",
+    "main.js.map": "/aprendiendoReact/static/js/main.2ab25bb0.chunk.js.map",
+    "runtime-main.js": "/aprendiendoReact/static/js/runtime-main.252d206e.js",
+    "runtime-main.js.map": "/aprendiendoReact/static/js/runtime-main.252d206e.js.map",
     "static/css/2.61b4cb56.chunk.css": "/aprendiendoReact/static/css/2.61b4cb56.chunk.css",
-    "static/js/2.f55fdb64.chunk.js": "/aprendiendoReact/static/js/2.f55fdb64.chunk.js",
-    "static/js/2.f55fdb64.chunk.js.map": "/aprendiendoReact/static/js/2.f55fdb64.chunk.js.map",
-    "static/js/3.accc9846.chunk.js": "/aprendiendoReact/static/js/3.accc9846.chunk.js",
-    "static/js/3.accc9846.chunk.js.map": "/aprendiendoReact/static/js/3.accc9846.chunk.js.map",
+    "static/js/2.7ddac273.chunk.js": "/aprendiendoReact/static/js/2.7ddac273.chunk.js",
+    "static/js/2.7ddac273.chunk.js.map": "/aprendiendoReact/static/js/2.7ddac273.chunk.js.map",
+    "static/js/3.9846e7fc.chunk.js": "/aprendiendoReact/static/js/3.9846e7fc.chunk.js",
+    "static/js/3.9846e7fc.chunk.js.map": "/aprendiendoReact/static/js/3.9846e7fc.chunk.js.map",
     "index.html": "/aprendiendoReact/index.html",
     "static/css/2.61b4cb56.chunk.css.map": "/aprendiendoReact/static/css/2.61b4cb56.chunk.css.map",
-    "static/css/main.32eb8c65.chunk.css.map": "/aprendiendoReact/static/css/main.32eb8c65.chunk.css.map",
-    "static/js/2.f55fdb64.chunk.js.LICENSE.txt": "/aprendiendoReact/static/js/2.f55fdb64.chunk.js.LICENSE.txt"
+    "static/css/main.b556cc81.chunk.css.map": "/aprendiendoReact/static/css/main.b556cc81.chunk.css.map",
+    "static/js/2.7ddac273.chunk.js.LICENSE.txt": "/aprendiendoReact/static/js/2.7ddac273.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.7df00cea.js",
+    "static/js/runtime-main.252d206e.js",
     "static/css/2.61b4cb56.chunk.css",
-    "static/js/2.f55fdb64.chunk.js",
-    "static/css/main.32eb8c65.chunk.css",
-    "static/js/main.9b457e76.chunk.js"
+    "static/js/2.7ddac273.chunk.js",
+    "static/css/main.b556cc81.chunk.css",
+    "static/js/main.2ab25bb0.chunk.js"
   ]
 }
