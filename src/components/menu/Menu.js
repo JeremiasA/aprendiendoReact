@@ -1,18 +1,28 @@
 import React from 'react'
 import './styles.css'
 
-export const Menu = props =>{
-    return <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+export const Menu = (props) =>{
+    return <nav className="navbar navbar-expand-lg navbar-light bg-light">
+  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span className="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Tasks <span class="sr-only"></span></a>
-      <a class="nav-item nav-link" href="#">Completed</a>
-      <a class="nav-item nav-link" href="#">Deleted</a>
-      <a class="nav-item nav-link disabled" href="#">Options</a>
+  <div style={{display:"flex"}}className="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div className="navbar-nav">
+      <a className="nav-item nav-link active" href="#">Tasks <span class="sr-only"></span></a>
+      <a className="nav-item nav-link" href="#">Completed</a>
+      <a className="nav-item nav-link" href="#">Deleted</a>
+      <a className="nav-item nav-link disabled" href="#">Options</a>
     </div>
+    <div style={{width:"100%", justifySelf:"flex-end", alignSelf:"center"}}>
+     <button 
+        style={{float:"right", marginRight:"1rem"}}
+        className="btn btn-primary float-rigth"
+        onClick={()=>{props.cblogout()}}
+        >Logout
+        </button>
+      <h4 style={{float:"right", lineHeight:"2.5rem", marginRight:"1rem"}}>{props.loggedUser.username}</h4>
+    </div>
+    
   </div>
 </nav>
 
