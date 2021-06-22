@@ -1,4 +1,6 @@
 import { React, useState } from 'react'
+import { inValidTaskName } from "../../alerts/alerts";
+
 import './styles.css'
 
 export const TaskCreator = (props) =>{
@@ -16,7 +18,7 @@ const onSendNewTask = () =>{
         setNewTaskName("")
 
     } else {
-        alert("Please insert task name")
+        inValidTaskName('Debe ingresar un nombre para la tarea!')
     }   
 }
 

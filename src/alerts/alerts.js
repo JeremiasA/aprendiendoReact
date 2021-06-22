@@ -15,13 +15,30 @@ const deleteConfirm = async (props) =>{
     }), deleteConfirmOption:(document.getElementById('remember').checked)})
 }
 
-    const deletedAlert = () =>{
-        Swal.fire(
-            'Eliminada!',
-            'La tarea ha sido eliminada.',
-            'success'
-        )
-        }
-    
+const deletedAlert = () =>{
+    Swal.fire(
+        'Eliminada!',
+        'La tarea ha sido eliminada.',
+        'success'
+    )
+}
 
-export {deleteConfirm, deletedAlert}
+
+
+const badCredentialsAlert = ()=>{
+    Swal.fire({
+    icon: 'error',
+    title: 'Incorrect credentials!',
+    text: 'Please insert your username and password',
+  })
+}
+
+const inValidTaskName = (text)=>{
+    Swal.fire({
+    icon: 'error',
+    title: 'Error al cargar la tarea',
+    text: text,
+  })
+}
+
+export {deleteConfirm, deletedAlert, inValidTaskName, badCredentialsAlert}
